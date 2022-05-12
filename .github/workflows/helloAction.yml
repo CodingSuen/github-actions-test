@@ -27,3 +27,18 @@ jobs:
         pwd
     - name: tar hello
       run: tar -zcvf hello.tar.gz ./hello
+      
+    - name: Deploy to Staging My server
+      uses: easingthemes/ssh-deploy@v2.1.6
+      env:
+      #私钥
+        SSH_PRIVATE_KEY: ${{ secrets.MY_SERVER_PRIVATE_KEY }} #后面指定为该仓库配置的私钥
+        ARGS: "-rltgoDzvO"
+        # 源目录，编译后生成的文件目录
+        SOURCE: '/home/runner/work/github-actions-test/github-actions-test/'
+        #服务器公网地址
+        REMOTE_HOST: ${{ secrets.HOST }}
+        #服务器用户名-一般默认root
+        REMOTE_USER: ${{ secrets.USER }}
+        #服务器中，代码部署的位置
+        TARGET: '/soft/'
