@@ -17,6 +17,7 @@ jobs:
       run: |
         sudo mkdir /test
         sudo echo 123456
+        gcc --version
     - name: configure
       run: ./configure
     - name: make
