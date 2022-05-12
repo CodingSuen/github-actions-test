@@ -28,4 +28,4 @@ jobs:
         make test
         pwd
     - name: tar hello
-      run: tar -zxvf hello.tar.gz ./hello
+      run: tar -zcvf hello.tar.gz ./hello
