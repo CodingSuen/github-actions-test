@@ -29,41 +29,11 @@ jobs:
         pwd
     - name: tar hello
       run: tar -zcvf hello.tar.gz ./hello
-    
-    # 发布Release
-    - name: create release
-      id: create_release
-      uses: actions/create-release@master
-      env: 
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    - name: Upload bundle
+      uses: bayssmekanique/action-simple-file-upload@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: true
-        prerelease: true
-  
-    # 上传构建结果到 Release
-    - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./hello.tar.gz
-        asset_name: hello.tar.gz
-        asset_content_type: application/x-tgz
-        
-    # 部署到服务器
-    - name: Deploy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        user: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd /soft/
-          wget https://uploads.github.com/repos/CodingSuen/github-actions-test/releases/latest/download/hello.tar.gz -O hello.tar.gz
-          tar -zxvf hello.tar.gz
-          ./hello
+        host: ${{ secrets.HOST }}
+        src: ./hello.tar.gz
+        dest: /soft
