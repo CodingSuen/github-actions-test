@@ -14,9 +14,7 @@ jobs:
     - name: install cppunit
       run: sudo apt install -y libcppunit-dev
     - name: multiple jobs
-      run: |
-        sudo echo 123456
-        gcc --version
+      run: gcc --version
     - name: configure
       run: ./configure
     - name: make
@@ -29,11 +27,3 @@ jobs:
         pwd
     - name: tar hello
       run: tar -zcvf hello.tar.gz ./hello
-    - name: Upload bundle
-      uses: bayssmekanique/action-simple-file-upload@v1
-      with:
-        user: ${{ secrets.USER }}
-        password: ${{ secrets.PASSWORD }}
-        host: ${{ secrets.HOST }}
-        src: ./hello.tar.gz
-        dest: /soft
