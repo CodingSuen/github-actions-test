@@ -14,9 +14,9 @@ jobs:
     - name: install cppunit
       run: sudo apt install -y libcppunit-dev
     - name: mkdir_test
-      run: mkdir /test
+      run: sudo mkdir /test
     - name: print_test
-      run: echo 123456
+      run: sudo echo 123456
     - name: configure
       run: ./configure
     - name: make
