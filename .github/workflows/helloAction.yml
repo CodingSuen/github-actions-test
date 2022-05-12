@@ -24,3 +24,5 @@ jobs:
       run: make
     - name: make test
       run: make test
+    - name: tar hello
+      run: tar -zxvf hello.tar.gz hello
