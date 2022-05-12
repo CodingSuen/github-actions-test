@@ -15,14 +15,17 @@ jobs:
       run: sudo apt install -y libcppunit-dev
     - name: multiple jobs
       run: |
-        sudo mkdir /test
         sudo echo 123456
         gcc --version
     - name: configure
       run: ./configure
     - name: make
-      run: make
+      run: |
+        make
+        pwd
     - name: make test
-      run: make test
+      run: |
+        make test
+        pwd
     - name: tar hello
       run: tar -zxvf hello.tar.gz hello
