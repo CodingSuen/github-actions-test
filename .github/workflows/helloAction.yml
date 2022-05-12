@@ -12,11 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install cppunit
-      run: | 
-        sudo apt install -y libcppunit-dev
-        mkdir /test
-        cd /test
-        echo helloworld!!!!!
+      run: sudo apt install -y libcppunit-dev
+    - name: mkdir_test
+      run: mkdir /test
+    - name: print_test
+      run: echo 123456
     - name: configure
       run: ./configure
     - name: make
