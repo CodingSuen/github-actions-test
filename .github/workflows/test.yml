@@ -17,4 +17,5 @@ jobs:
       with:
         version: 7
         platform: x64
-        run: sudo gcc --version
+    - name: gcc version
+      run: sudo gcc --version
