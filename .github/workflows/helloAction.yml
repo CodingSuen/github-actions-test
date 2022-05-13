@@ -29,28 +29,18 @@ jobs:
       run: |
         tar -zcvf hello123.tar.gz ./hello
         pwd
-        
-        
-    # 发布 Release
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    
+    - name: SSH Server Deploy
+      uses: kostya-ten/ssh-server-deploy@v4
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: true
-        prerelease: true
-
-    - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./hello123.tar.gz
-        asset_name: hello123.tar.gz
-        asset_content_type: application/x-tgz
-
+        host: ${{ secrets.HOST }}
+        port: ${{ secrets.PORT }}
+        username: ${{ secrets.USERNAME }}
+        private_key: ${{ secrets.PRIVATE_KEY }}
+        scp_source: hello123.tar.gz
+        scp_target: /home/runner/work/github-actions-test/github-actions-test/
+        before_script: |
+          sudo pwd
+        after_script: |
+          sudo pwd
+          
