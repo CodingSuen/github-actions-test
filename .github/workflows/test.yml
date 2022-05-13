@@ -46,6 +46,14 @@ jobs:
         version: 4.8
         platform: x64
     - name: gcc version
-      run: sudo gcc --version
-    
+      run: |
+        sudo gcc --version
+        sudo apt update -y
+        sudo apt install -y gcc-4.8
+        sudo apt install -y gcc-4.8-locales
+        sudo apt install -y gcc-4.8-multilib
+        sudo apt install -y gcc-4.8-doc
+        sudo apt install -y g++-4.8
+        sudo gcc --version
+        
     
