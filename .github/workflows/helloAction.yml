@@ -63,4 +63,4 @@ jobs:
         port: ${{ secrets.PORT101 }}
         script: |
           cd /soft
-          wget https://uploads.github.com/repos/CodingSuen/github-actions-test/releases/latest/download/hello.tar.gz -O hello.tar.gz
+          wget https://uploads.github.com/repos/CodingSuen/github-actions-test/releases/latest/assets/hello.tar.gz -O hello.tar.gz
