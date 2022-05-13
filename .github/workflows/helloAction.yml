@@ -26,14 +26,12 @@ jobs:
         make test
         pwd
     - name: tar hello
-      run: tar -zcvf hello.tar.gz ./hello
-      
-    - name: Deploy to Staging server
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.TOKEN }}
-        ARGS: "-rltgoDzvO"
-        SOURCE: "./hello.tar.gz"
-        REMOTE_HOST: ${{ secrets.HOST }}
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        TARGET: '/soft'
+      run: |
+        mkdir /soft
+        tar -zcvf /soft/hello.tar.gz ./hello
+    
+    - name: upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: hello.tar.gz
+        path: /soft/hello.tar.gz
