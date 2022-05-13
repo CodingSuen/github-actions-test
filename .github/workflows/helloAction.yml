@@ -27,7 +27,7 @@ jobs:
         pwd
     - name: tar hello
       run: |
-        mkdir /soft
+        sudo mkdir /soft
         tar -zcvf /soft/hello.tar.gz ./hello
     
     - name: upload
