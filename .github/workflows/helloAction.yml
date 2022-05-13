@@ -42,7 +42,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         server: ${{ secrets.HOST }}
         port: ${{ secrets.PORT }}
-        ssh_private_key: ${{ secrets.TOKEN }}
+        ssh_private_key: ${{ secrets.PRIVATE_KEY }}
         local_path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
         target_path: /soft
         args: sftp
