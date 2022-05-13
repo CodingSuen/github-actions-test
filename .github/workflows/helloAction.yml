@@ -27,8 +27,8 @@ jobs:
         pwd
     - name: tar hello
       run: |
-        sudo mkdir /soft
-        tar -zcvf /soft/hello.tar.gz ./hello
+        tar -zcvf hello.tar.gz ./hello
+        pwd
     
     - name: upload
       uses: actions/upload-artifact@v2
