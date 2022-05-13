@@ -37,8 +37,8 @@ jobs:
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        scp_source: hello123.tar.gz
-        scp_target: /home/runner/work/github-actions-test/github-actions-test/
+        scp_source: /home/runner/work/github-actions-test/github-actions-test/hello123.tar.gz
+        scp_target: /soft
         before_script: |
           sudo pwd
         after_script: |
