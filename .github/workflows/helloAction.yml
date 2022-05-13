@@ -36,13 +36,23 @@ jobs:
         name: hello.tar.gz
         path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
     
-    - name: download
-      uses: zhenyuWang/Upload-File-Action@v1.0.1
+    #- name: download
+    #  uses: zhenyuWang/Upload-File-Action@v1.0.1
+    #  with:
+    #    username: ${{ secrets.USERNAME101 }}
+    #    server: ${{ secrets.HOST101 }}
+    #    port: ${{ secrets.PORT101 }}
+    #    ssh_private_key: ${{ secrets.PRIVATE_KEY101 }}
+    #    local_path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
+    #    target_path: /soft
+    #    args: sftp
+    - name: deploy
+      uses: mdallasanta/ssh-scp-deploy@master
       with:
-        username: ${{ secrets.USERNAME101 }}
-        server: ${{ secrets.HOST101 }}
+        local: '/home/runner/work/github-actions-test/github-actions-test/hello.tar.gz'
+        remote: '/soft'
+        host: ${{ secrets.HOST101 }}
         port: ${{ secrets.PORT101 }}
-        ssh_private_key: ${{ secrets.PRIVATE_KEY101 }}
-        local_path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
-        target_path: /soft
-        args: sftp
+        user: ${{ secrets.USER101 }}
+        password: ${{ secrets.PASSWORD101 }}
+        key: ${{ secrets.PRIVATE_KEY101 }}
