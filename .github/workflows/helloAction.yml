@@ -29,31 +29,38 @@ jobs:
       run: |
         tar -zcvf hello.tar.gz ./hello
         pwd
-    
-    - name: upload
-      uses: actions/upload-artifact@v2
+        
+    # 发布 Release
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        name: hello.tar.gz
-        path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
-    
-    #- name: download
-    #  uses: zhenyuWang/Upload-File-Action@v1.0.1
-    #  with:
-    #    username: ${{ secrets.USERNAME101 }}
-    #    server: ${{ secrets.HOST101 }}
-    #    port: ${{ secrets.PORT101 }}
-    #    ssh_private_key: ${{ secrets.PRIVATE_KEY101 }}
-    #    local_path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
-    #    target_path: /soft
-    #    args: sftp
-    
-    - name: deploy
-      uses: marcodallasanta/ssh-scp-deploy@v1.2.0
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: true
+        prerelease: true
+        
+    # 上传构建结果到 Release
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        local: '/home/runner/work/github-actions-test/github-actions-test/hello.tar.gz'
-        remote: '/soft'
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./hello.tar.gz
+        asset_name: hello.tar.gz
+        asset_content_type: application/x-tgz
+        
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
         host: ${{ secrets.HOST101 }}
-        port: ${{ secrets.PORT101 }}
-        user: ${{ secrets.USER101 }}
+        username: ${{ secrets.USERNAME101 }}
         password: ${{ secrets.PASSWORD101 }}
-        key: ${{ secrets.PRIVATE_KEY101 }}
+        port: ${{ secrets.PORT101 }}
+        script: |
+          cd /soft
+          wget https://github.com/oppnys/oppnys.com/releases/latest/download/release.tgz -O release.tgz
