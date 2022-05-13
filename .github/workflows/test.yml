@@ -25,7 +25,7 @@ jobs:
       
     - name: install dependencies
       run: |
-        chmod +x install_depencies.sh
+        chmod +x ./install_depencies.sh
         ./install_depencies.sh
     
 #    - name: prepare yumlib
