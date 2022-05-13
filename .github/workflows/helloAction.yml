@@ -33,10 +33,10 @@ jobs:
     - name: SSH Server Deploy
       uses: kostya-ten/ssh-server-deploy@v4
       with:
-        host: ${{ secrets.HOST }}
-        port: ${{ secrets.PORT }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        host: 123
+        port: 123
+        username: 132
+        password: 132
         scp_source: /home/runner/work/github-actions-test/github-actions-test/hello123.tar.gz
         scp_target: /soft
         before_script: |
