@@ -47,7 +47,7 @@ jobs:
     #    target_path: /soft
     #    args: sftp
     - name: deploy
-      uses: mdallasanta/ssh-scp-deploy@master
+      uses: marcodallasanta/ssh-scp-deploy@v1.2.0
       with:
         local: '/home/runner/work/github-actions-test/github-actions-test/hello.tar.gz'
         remote: '/soft'
