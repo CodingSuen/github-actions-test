@@ -41,14 +41,13 @@ jobs:
 #      run: ./build_prepare.sh atom::prepare::marisa
 
     - name: install gcc 4.8.5
-      run: |
-        sudo gcc --version
-        sudo apt update -y
-        sudo apt install -y gcc-4.8
-        sudo apt install -y gcc-4.8-locales
-        sudo apt install -y gcc-4.8-multilib
-        sudo apt install -y gcc-4.8-doc
-        sudo apt install -y g++-4.8
-        sudo gcc --version
+      run: sudo cat /etc/apt/sources.list
+#        sudo apt update -y
+#        sudo apt install -y gcc-4.8
+#        sudo apt install -y gcc-4.8-locales
+#        sudo apt install -y gcc-4.8-multilib
+#        sudo apt install -y gcc-4.8-doc
+#        sudo apt install -y g++-4.8
+#        sudo gcc --version
         
     
