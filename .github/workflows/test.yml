@@ -50,13 +50,14 @@ jobs:
         sudo apt install -y gcc-4.8-multilib
         sudo apt install -y gcc-4.8-doc
         sudo apt install -y g++-4.8
-        sudo which gcc
-        sudo which g++
-        cd /usr/bin/gcc-4.8
-        cd /usr/bin/g++-4.8
+
 #        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20
 #        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
 
     - name: check gcc version
-      run: sudo gcc --version
+      run: |
+        sudo which gcc
+        sudo which g++
+        ls /usr/bin/gcc-4.8
+        ls /usr/bin/g++-4.8
     
