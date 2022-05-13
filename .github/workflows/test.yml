@@ -41,8 +41,7 @@ jobs:
 #      run: ./build_prepare.sh atom::prepare::marisa
 
     - name: install gcc 4.8.5
-      run: | 
-        sudo cat /etc/apt/sources.list
+      run: |
         sudo echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial main" >> sources.list
         sudo echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe" >> sources.list
         sudo cat /etc/apt/sources.list
