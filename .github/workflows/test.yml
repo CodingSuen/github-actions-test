@@ -15,30 +15,30 @@ jobs:
     - name: check gcc version
       run: sudo gcc --version
       
-#    - name: Set up GCC
-#      uses: egor-tensin/setup-gcc@v1
-#      with:
-#        version: 7
-#        platform: x64
-#    - name: gcc version
-#      run: sudo gcc --version
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: 7
+        platform: x64
+    - name: gcc version
+      run: sudo gcc --version
       
-#    - name: install dependencies
-#      run: |
-#        chmod +x ./install_dependencies.sh
-#        ./install_dependencies.sh
+    - name: install dependencies
+      run: |
+        chmod +x ./install_dependencies.sh
+        ./install_dependencies.sh
     
-#    - name: prepare yumlib
-#      run: |
-#        cd ./src
-#        chmod +x .sh
-#        ./build_prepare.sh atom::prepare::yumlib
+    - name: prepare yumlib
+      run: |
+        cd ./src
+        chmod +x .sh
+        ./build_prepare.sh atom::prepare::yumlib
     
-#    - name: prepare cmake
-#      run: ./build_prepare.sh atom::prepare::cmake
+    - name: prepare cmake
+      run: ./build_prepare.sh atom::prepare::cmake
     
-#    - name: prepare marisa
-#      run: ./build_prepare.sh atom::prepare::marisa
+    - name: prepare marisa
+      run: ./build_prepare.sh atom::prepare::marisa
 
     - name: install gcc 4.8.5
       run: |
@@ -50,5 +50,7 @@ jobs:
         sudo apt install -y gcc-4.8-multilib
         sudo apt install -y gcc-4.8-doc
         sudo apt install -y g++-4.8
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
         sudo gcc --version
     
