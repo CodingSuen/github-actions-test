@@ -36,7 +36,7 @@ jobs:
         host: ${{ secrets.HOST }}
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USERNAME }}
-        private_key: ${{ secrets.PRIVATE_KEY }}
+        password: ${{ secrets.PASSWORD }}
         scp_source: hello123.tar.gz
         scp_target: /home/runner/work/github-actions-test/github-actions-test/
         before_script: |
