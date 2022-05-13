@@ -12,10 +12,40 @@ jobs:
     steps:
     - uses: actions/checkout@master
     
+    - name: check gcc version
+      run: sudo gcc --version
+      
     - name: Set up GCC
       uses: egor-tensin/setup-gcc@v1
       with:
-        version: 7.3
+        version: 7
         platform: x64
     - name: gcc version
       run: sudo gcc --version
+      
+    - name: install dependencies
+      run: |
+        chmod +x install_depencies.sh
+        ./install_depencies.sh
+    
+#    - name: prepare yumlib
+#      run: |
+#        cd ./src
+#        chmod +x .sh
+#        ./build_prepare.sh atom::prepare::yumlib
+    
+#    - name: prepare cmake
+#      run: ./build_prepare.sh atom::prepare::cmake
+    
+#    - name: prepare marisa
+#      run: ./build_prepare.sh atom::prepare::marisa
+    
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: 4
+        platform: x64
+    - name: gcc version
+      run: sudo gcc --version
+    
+    
