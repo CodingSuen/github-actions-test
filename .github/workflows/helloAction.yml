@@ -1,6 +1,6 @@
 name: C/C++
 
-on:
+#on:
   push:
     branches: [ main ]
   pull_request:
@@ -43,4 +43,3 @@ jobs:
           sudo pwd
         after_script: |
           sudo pwd
-          
