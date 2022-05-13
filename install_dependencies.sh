@@ -1,26 +1,26 @@
-sudo apt install gcc
-sudo apt install g++
-sudo apt install make
-sudo apt install build-essential
-sudo apt install autoconf
-sudo apt install tree
-sudo apt install bison
-sudo apt install git
-sudo apt install cmake
-sudo apt install libtool
-sudo apt install numactl
-sudo apt install python
-sudo apt install openssl
-sudo apt install perl
-sudo apt install binutils
-sudo apt install libgmp-dev
-sudo apt install libmpfr-dev
-sudo apt install libmpc-dev
-sudo apt install libisl-dev
-sudo apt install zlib1g-dev
-sudo apt-get install liblz4-dev
-sudo apt-get install libbz2-dev
-sudo apt-get install libzstd-dev
-sudo apt-get install lz4
-sudo apt-get install ncurses-dev
-sudo apt-get install libsnappy-dev
+sudo apt install -y gcc
+sudo apt install -y g++
+sudo apt install -y make
+sudo apt install -y build-essential
+sudo apt install -y autoconf
+sudo apt install -y tree
+sudo apt install -y bison
+sudo apt install -y git
+sudo apt install -y cmake
+sudo apt install -y libtool
+sudo apt install -y numactl
+sudo apt install -y python
+sudo apt install -y openssl
+sudo apt install -y perl
+sudo apt install -y binutils
+sudo apt install -y libgmp-dev
+sudo apt install -y libmpfr-dev
+sudo apt install -y libmpc-dev
+sudo apt install -y libisl-dev
+sudo apt install -y zlib1g-dev
+sudo apt install -y liblz4-dev
+sudo apt install -y libbz2-dev
+sudo apt install -y libzstd-dev
+sudo apt install -y lz4
+sudo apt install -y ncurses-dev
+sudo apt install -y libsnappy-dev
