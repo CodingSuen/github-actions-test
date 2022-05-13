@@ -53,6 +53,6 @@ jobs:
 
     - name: check gcc version
       run: |
-        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20
-        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 400
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 400
         sudo gcc --version
