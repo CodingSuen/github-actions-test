@@ -35,3 +35,14 @@ jobs:
       with:
         name: hello.tar.gz
         path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
+    
+    - name: download
+      uses: zhenyuWang/Upload-File-Action@v1.0.1
+      with:
+        username: ${{ secrets.USERNAME }}
+        server: ${{ secrets.HOST }}
+        port: ${{ secrets.PORT }}
+        ssh_private_key: ${{ secrets.TOKEN }}
+        local_path: /home/runner/work/github-actions-test/github-actions-test/hello.tar.gz
+        target_path: /soft
+        args: sftp
