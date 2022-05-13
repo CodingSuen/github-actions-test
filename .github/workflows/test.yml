@@ -15,7 +15,7 @@ jobs:
     - name: Set up GCC
       uses: egor-tensin/setup-gcc@v1
       with:
-        version: 7
+        version: 7.3
         platform: x64
     - name: gcc version
       run: sudo gcc --version
