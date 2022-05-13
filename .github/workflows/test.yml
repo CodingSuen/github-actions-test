@@ -15,18 +15,18 @@ jobs:
     - name: check gcc version
       run: sudo gcc --version
       
-    - name: Set up GCC
-      uses: egor-tensin/setup-gcc@v1
-      with:
-        version: 7
-        platform: x64
-    - name: gcc version
-      run: sudo gcc --version
+#    - name: Set up GCC
+#      uses: egor-tensin/setup-gcc@v1
+#      with:
+#        version: 7
+#        platform: x64
+#    - name: gcc version
+#      run: sudo gcc --version
       
-    - name: install dependencies
-      run: |
-        chmod +x ./install_dependencies.sh
-        ./install_dependencies.sh
+#    - name: install dependencies
+#      run: |
+#        chmod +x ./install_dependencies.sh
+#        ./install_dependencies.sh
     
 #    - name: prepare yumlib
 #      run: |
