@@ -26,8 +26,8 @@ jobs:
     - name: gcc version
       run: |
         sudo gcc --version
-        which gcc-7.5
-        which g++-7.5
+        #which gcc-7.5
+        #which g++-7.5
         
 #    - name: install dependencies
 #      run: |
