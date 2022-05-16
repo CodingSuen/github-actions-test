@@ -15,8 +15,8 @@ jobs:
     - name: check gcc version
       run: |
         sudo gcc --version
-        which gcc-9.4
-        which g++-9.4
+        #which gcc-9.4
+        #which g++-9.4
 
     - name: install gcc 7
       uses: egor-tensin/setup-gcc@v1
