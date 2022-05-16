@@ -13,16 +13,22 @@ jobs:
     - uses: actions/checkout@master
     
     - name: check gcc version
-      run: sudo gcc --version
-      
+      run: |
+        sudo gcc --version
+        which gcc-9.4
+        which g++-9.4
+
     - name: install gcc 7
       uses: egor-tensin/setup-gcc@v1
       with:
         version: 7
         platform: x64
     - name: gcc version
-      run: sudo gcc --version
-      
+      run: |
+        sudo gcc --version
+        which gcc-7.5
+        which g++-7.5
+        
 #    - name: install dependencies
 #      run: |
 #        chmod +x ./install_dependencies.sh
@@ -50,7 +56,6 @@ jobs:
         sudo apt install -y gcc-4.8-multilib
         sudo apt install -y gcc-4.8-doc
         sudo apt install -y g++-4.8
-
 
     - name: check gcc version
       run: |
