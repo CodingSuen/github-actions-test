@@ -21,10 +21,10 @@ jobs:
           sudo chmod 777 test.txt
           sudo echo 123 > test.txt
           sudo cat test.txt
-          #sudo rm 123.txt
+          sudo rm 123.txt
           
       - name: hello
-        if: ${{ failure() }}
+        if: failure()
         run: echo "hello"
       
       - uses: actions/upload-artifact@v3
