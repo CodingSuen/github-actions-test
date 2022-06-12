@@ -22,7 +22,7 @@ jobs:
           sudo chmod 777 test.txt
           sudo echo 123 > test.txt
           sudo cat test.txt
-          sudo rm 123.txt 2>/dev/null
+          sudo rm 123.txt
       
       - id: s2
         if: steps.s1.conclusion == 'failure'
