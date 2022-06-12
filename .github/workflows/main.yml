@@ -22,6 +22,7 @@ jobs:
           sudo echo 123 > test.txt
           sudo cat test.txt
           sudo rm 123.txt
+          sudo exit 0
           
       - name: hello
         if: ${{ failure() }}
