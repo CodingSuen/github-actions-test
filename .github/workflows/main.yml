@@ -45,4 +45,6 @@ jobs:
           name: my-artifact
     
       - name: check test.txt
-        run: sudo ls ./test.txt
+        run: |
+          sudo ls ./test.txt
+          echo "hello"
