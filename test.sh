@@ -1,4 +1,4 @@
-rm 123456.txt 2>/dev/null
+rm 123456.txt 1>/dev/null
 if [ $? -ne 0 ]
 then
     exit 0
