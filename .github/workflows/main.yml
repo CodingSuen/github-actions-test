@@ -17,11 +17,8 @@ jobs:
 
       - name: Run a one-line script
         run: |
-          sudo touch test.txt
-          sudo chmod 777 test.txt
-          sudo echo 123 > test.txt
-          sudo cat test.txt
-          sudo rm 123.txt
+          sudo chmod 777 test.sh
+          sudo sh ./test.sh
           sudo exit 0
           
       - name: hello
