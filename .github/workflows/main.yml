@@ -19,7 +19,6 @@ jobs:
         run: |
           sudo touch test.txt
           sudo echo 123 > test.txt
-          sudo cat test.txt
           
       - uses: actions/upload-artifact@v3
         with:
@@ -37,4 +36,4 @@ jobs:
           name: my-artifact
     
       - name: check test.txt
-        run: sudo cat ./test.txt
+        run: sudo ls ./test.txt
