@@ -18,6 +18,7 @@ jobs:
       - name: Run a one-line script
         run: |
           sudo touch test.txt
+          sudo chmod 777 test.txt
           sudo echo 123 > test.txt
           
       - uses: actions/upload-artifact@v3
