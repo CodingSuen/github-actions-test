@@ -28,6 +28,7 @@ jobs:
         run: echo "hello"
       
       - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
         with:
           name: my-artifact
           path: ./test.txt
