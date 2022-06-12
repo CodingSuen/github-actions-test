@@ -34,6 +34,7 @@ jobs:
           path: ./test.txt
 
   second:
+    if: ${{ failure() }}
     needs: first
     runs-on: ubuntu-latest
     
