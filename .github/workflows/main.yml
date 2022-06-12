@@ -15,18 +15,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - id: s1
-        name: Run a one-line script
+      - name: Run a one-line script
         run: |
           sudo touch test.txt
           sudo chmod 777 test.txt
           sudo echo 123 > test.txt
           sudo cat test.txt
           sudo rm 123.txt
-      
-      - id: s2
-        if: steps.s1.conclusion == 'failure'
-        run: echo "hello world"
+          
+      - name: hello
+        if: ${{ failure() }}
+        run: echo "hello"
       
       - uses: actions/upload-artifact@v3
         with:
