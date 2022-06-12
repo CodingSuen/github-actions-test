@@ -18,21 +18,22 @@ jobs:
       - name: Run a one-line script
         run: |
           sudo chmod 777 test.sh
-          sudo sh ./test.sh
-          sudo exit 0
+          #sudo sh ./test.sh
+          set +e
+          rm 123456.txt
           
       - name: hello
-        if: ${{ failure() }}
+        #if: ${{ failure() }}
         run: echo "hello"
       
       - uses: actions/upload-artifact@v3
-        if: ${{ failure() }}
+        #if: ${{ failure() }}
         with:
           name: my-artifact
           path: ./test.txt
 
   second:
-    if: ${{ failure() }}
+    #if: ${{ failure() }}
     needs: first
     runs-on: ubuntu-latest
     
